@@ -1,4 +1,5 @@
 import { Injectable } from '@nestjs/common';
+import _ from 'underscore';
 
 @Injectable()
 export class AppService {
@@ -60,12 +61,10 @@ export class AppService {
   }
 
   private fiveRandomDogs(sourceArray) {
-    const result = [];
-    for (let i = 0; i < 5; i++) {
-      result.push({
-        image_url: sourceArray[Math.floor(Math.random() * sourceArray.length)],
-      });
-    }
+    const shuffled = _.shuffle(sourceArray);
+    const result = shuffled.slice(0, 5).map((url) => {
+      return { image_url: url };
+    });
     return result;
   }
 
