@@ -4,6 +4,8 @@ import _ from 'underscore';
 @Injectable()
 export class AppService {
   private async getMockData() {
+    //this function is designated as async as it stand in place of a
+    //call to fetch data from a DB
     return {
       dogs: [
         'https://images.dog.ceo/breeds/bullterrier-staffordshire/n02093256_2748.jpg',
